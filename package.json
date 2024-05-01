@@ -1,57 +1,57 @@
 {
-	"author": {
-		"email": "Land@PlayForm.Cloud",
-		"name": "🌆 — Land —",
-		"url": "HTTPS://Land.PlayForm.Cloud"
-	},
-	"authors": [
-		"Tauri Programme within The Commons Conservancy"
+	"name": "tauri-plugin-stronghold-api",
+	"version": "0.0.1",
+	"private": false,
+	"description": "Store secrets and keys using the IOTA Stronghold encrypted database.",
+	"keywords": [
+		"land"
 	],
-	"browser": "dist-js/index.min.js",
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriPluginStrongHold#readme",
 	"bugs": {
 		"url": "HTTPS://GitHub.Com/CodeEditorLand/TauriPluginStrongHold/issues"
 	},
-	"dependencies": {
-		"@tauri-apps/api": "1.5.3"
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/TauriPluginStrongHold.git"
 	},
-	"description": "Store secrets and keys using the IOTA Stronghold encrypted database.",
-	"devDependencies": {
-		"@playform/build": "0.0.7",
-		"@playform/document": "0.0.6",
-		"tslib": "2.6.2"
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
 	},
+	"type": "module",
 	"exports": {
 		"browser": "./dist-js/index.min.js",
 		"import": "./dist-js/index.mjs",
 		"types": "./dist-js/index.d.ts"
 	},
+	"module": "dist-js/index.mjs",
+	"browser": "dist-js/index.min.js",
+	"types": "dist-js/index.d.ts",
 	"files": [
 		"dist-js",
 		"!dist-js/**/*.map",
 		"README.md",
 		"LICENSE"
 	],
-	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriPluginStrongHold#readme",
-	"keywords": [
-		"land"
-	],
-	"license": "SEE LICENSE IN LICENSE",
-	"module": "dist-js/index.mjs",
-	"name": "tauri-plugin-stronghold-api",
-	"private": false,
-	"publishConfig": {
-		"access": "public"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+HTTPS://github.com/CodeEditorLand/TauriPluginStrongHold.git"
-	},
 	"scripts": {
 		"Document": "Document 'Source/**/*.ts'",
 		"build": "rollup -c",
 		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
-	"type": "module",
-	"types": "dist-js/index.d.ts",
-	"version": "0.0.1"
+	"dependencies": {
+		"@tauri-apps/api": "1.5.3"
+	},
+	"devDependencies": {
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
+		"tslib": "2.6.2"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"authors": [
+		"Tauri Programme within The Commons Conservancy"
+	]
 }
