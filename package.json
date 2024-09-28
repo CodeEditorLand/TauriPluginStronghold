@@ -1,5 +1,15 @@
 {
+<<<<<<< HEAD
 	"name": "tauri-plugin-stronghold-api",
+=======
+	"authors": [
+		"Tauri Programme within The Commons Conservancy"
+	],
+	"browser": "dist-js/index.min.js",
+	"dependencies": {
+		"@tauri-apps/api": "2.0.0-rc.5"
+	},
+>>>>>>> 20c7a74e781c371e11ea961bd9d9f19223411541
 	"description": "Store secrets and keys using the IOTA Stronghold encrypted database.",
 	"exports": {
 		"browser": "./dist-js/index.min.js",
