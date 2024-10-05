@@ -1,6 +1,8 @@
 ![plugin-stronghold](https://github.com/tauri-apps/plugins-workspace/raw/v1/plugins/stronghold/banner.png)
 
-Store secrets and keys using the [IOTA Stronghold](https://github.com/iotaledger/stronghold.rs) encrypted database and secure runtime.
+Store secrets and keys using the
+[IOTA Stronghold](https://github.com/iotaledger/stronghold.rs) encrypted
+database and secure runtime.
 
 ## Install
 
@@ -8,9 +10,12 @@ _This plugin requires a Rust version of at least **1.67**_
 
 There are three general methods of installation that we can recommend.
 
-1. Use crates.io and npm (easiest, and requires you to trust that our publishing pipeline worked)
-2. Pull sources directly from Github using git tags / revision hashes (most secure)
-3. Git submodule install this repo in your tauri project and then use file protocol to ingest the source (most secure, but inconvenient to use)
+1. Use crates.io and npm (easiest, and requires you to trust that our publishing
+   pipeline worked)
+2. Pull sources directly from Github using git tags / revision hashes (most
+   secure)
+3. Git submodule install this repo in your tauri project and then use file
+   protocol to ingest the source (most secure, but inconvenient to use)
 
 Install the Core plugin by adding the following to your `Cargo.toml` file:
 
@@ -21,9 +26,12 @@ Install the Core plugin by adding the following to your `Cargo.toml` file:
 tauri-plugin-stronghold = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 ```
 
-You can install the JavaScript Guest bindings using your preferred JavaScript package manager:
+You can install the JavaScript Guest bindings using your preferred JavaScript
+package manager:
 
-> Note: If your JavaScript package manager cannot install packages from git monorepos, you can still use the code by manually copying the [Guest bindings](./guest-js/index.ts) into your source files.
+> Note: If your JavaScript package manager cannot install packages from git
+> monorepos, you can still use the code by manually copying the
+> [Guest bindings](./guest-js/index.ts) into your source files.
 
 ```sh
 pnpm add https://github.com/tauri-apps/tauri-plugin-stronghold#v1
@@ -69,7 +77,8 @@ fn main() {
 }
 ```
 
-Afterwards all the plugin's APIs are available through the JavaScript guest bindings:
+Afterwards all the plugin's APIs are available through the JavaScript guest
+bindings:
 
 ```javascript
 import { Stronghold, Location, Client } from "tauri-plugin-stronghold-api";
@@ -127,7 +136,8 @@ await store.remove(key);
 
 ## Contributing
 
-PRs accepted. Please make sure to read the Contributing Guide before making a pull request.
+PRs accepted. Please make sure to read the Contributing Guide before making a
+pull request.
 
 ## Partners
 
@@ -143,7 +153,9 @@ PRs accepted. Please make sure to read the Contributing Guide before making a pu
   </tbody>
 </table>
 
-For the complete list of sponsors please visit our [website](https://tauri.app#sponsors) and [Open Collective](https://opencollective.com/tauri).
+For the complete list of sponsors please visit our
+[website](https://tauri.app#sponsors) and
+[Open Collective](https://opencollective.com/tauri).
 
 ## License
 
