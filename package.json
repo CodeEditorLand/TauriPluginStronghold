@@ -4,7 +4,7 @@
 	],
 	"browser": "dist-js/index.min.js",
 	"dependencies": {
-		"@tauri-apps/api": "2.0.2"
+		"@tauri-apps/api": "2.0.3"
 	},
 	"description": "Store secrets and keys using the IOTA Stronghold encrypted database.",
 	"devDependencies": {
