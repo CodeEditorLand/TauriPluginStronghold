@@ -69,12 +69,14 @@ export interface Duration {
 export declare class Location {
 	type: string;
 	payload: Record<string, unknown>;
+
 	constructor(type: string, payload: Record<string, unknown>);
 	static generic(vault: VaultPath, record: RecordPath): Location;
 	static counter(vault: VaultPath, counter: number): Location;
 }
 declare class ProcedureExecutor {
 	procedureArgs: Record<string, unknown>;
+
 	constructor(procedureArgs: Record<string, unknown>);
 	/**
 	 * Generate a SLIP10 seed for the given location.
@@ -143,6 +145,7 @@ declare class ProcedureExecutor {
 export declare class Client {
 	path: string;
 	name: BytesDto;
+
 	constructor(path: string, name: ClientPath);
 	/**
 	 * Get a vault by name.
@@ -151,12 +154,15 @@ export declare class Client {
 	 * @returns
 	 */
 	getVault(name: VaultPath): Vault;
+
 	getStore(): Store;
 }
 export declare class Store {
 	path: string;
 	client: BytesDto;
+
 	constructor(path: string, client: BytesDto);
+
 	get(key: StoreKey): Promise<Uint8Array | null>;
 	insert(key: StoreKey, value: number[], lifetime?: Duration): Promise<void>;
 	remove(key: StoreKey): Promise<Uint8Array | null>;
@@ -172,6 +178,7 @@ export declare class Vault extends ProcedureExecutor {
 	client: BytesDto;
 	/** The vault name. */
 	name: BytesDto;
+
 	constructor(path: string, client: ClientPath, name: VaultPath);
 	/**
 	 * Insert a record to this vault.
