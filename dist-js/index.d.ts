@@ -1,24 +1,29 @@
 type BytesDto = string | number[];
+
 export type ClientPath =
 	| string
 	| Iterable<number>
 	| ArrayLike<number>
 	| ArrayBuffer;
+
 export type VaultPath =
 	| string
 	| Iterable<number>
 	| ArrayLike<number>
 	| ArrayBuffer;
+
 export type RecordPath =
 	| string
 	| Iterable<number>
 	| ArrayLike<number>
 	| ArrayBuffer;
+
 export type StoreKey =
 	| string
 	| Iterable<number>
 	| ArrayLike<number>
 	| ArrayBuffer;
+
 export interface ConnectionLimits {
 	maxPendingIncoming?: number;
 	maxPendingOutgoing?: number;
