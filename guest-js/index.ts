@@ -32,15 +32,21 @@ function toBytesDto(
 	if (typeof v === "string") {
 		return v;
 	}
+
 	return Array.from(v instanceof ArrayBuffer ? new Uint8Array(v) : v);
 }
 
 export interface ConnectionLimits {
 	maxPendingIncoming?: number;
+
 	maxPendingOutgoing?: number;
+
 	maxEstablishedIncoming?: number;
+
 	maxEstablishedOutgoing?: number;
+
 	maxEstablishedPerPeer?: number;
+
 	maxEstablishedTotal?: number;
 }
 
@@ -51,33 +57,49 @@ export interface PeerAddress {
 
 export interface AddressInfo {
 	peers: Map<string, PeerAddress>;
+
 	relays: string[]; // peers
 }
 
 export interface ClientAccess {
 	useVaultDefault?: boolean;
+
 	useVaultExceptions?: Map<VaultPath, boolean>;
+
 	writeVaultDefault?: boolean;
+
 	writeVaultExceptions?: Map<VaultPath, boolean>;
+
 	cloneVaultDefault?: boolean;
+
 	cloneVaultExceptions?: Map<VaultPath, boolean>;
+
 	readStore?: boolean;
+
 	writeStore?: boolean;
 }
 
 export interface Permissions {
 	default?: ClientAccess;
+
 	exceptions?: Map<VaultPath, ClientAccess>;
 }
 
 export interface NetworkConfig {
 	requestTimeout?: Duration;
+
 	connectionTimeout?: Duration;
+
 	connectionsLimit?: ConnectionLimits;
+
 	enableMdns?: boolean;
+
 	enableRelay?: boolean;
+
 	addresses?: AddressInfo;
+
 	peerPermissions?: Map<string, Permissions>;
+
 	permissionsDefault?: Permissions;
 }
 
@@ -91,10 +113,12 @@ export interface Duration {
 
 export class Location {
 	type: string;
+
 	payload: Record<string, unknown>;
 
 	constructor(type: string, payload: Record<string, unknown>) {
 		this.type = type;
+
 		this.payload = payload;
 	}
 
@@ -268,10 +292,12 @@ class ProcedureExecutor {
 
 export class Client {
 	path: string;
+
 	name: BytesDto;
 
 	constructor(path: string, name: ClientPath) {
 		this.path = path;
+
 		this.name = toBytesDto(name);
 	}
 
@@ -292,10 +318,12 @@ export class Client {
 
 export class Store {
 	path: string;
+
 	client: BytesDto;
 
 	constructor(path: string, client: BytesDto) {
 		this.path = path;
+
 		this.client = client;
 	}
 
@@ -347,6 +375,7 @@ export class Store {
 export class Vault extends ProcedureExecutor {
 	/** The vault path. */
 	path: string;
+
 	client: BytesDto;
 	/** The vault name. */
 	name: BytesDto;
@@ -357,8 +386,11 @@ export class Vault extends ProcedureExecutor {
 			client,
 			vault: name,
 		});
+
 		this.path = path;
+
 		this.client = toBytesDto(client);
+
 		this.name = toBytesDto(name);
 	}
 

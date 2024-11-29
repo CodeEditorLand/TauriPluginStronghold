@@ -26,42 +26,64 @@ export type StoreKey =
 
 export interface ConnectionLimits {
 	maxPendingIncoming?: number;
+
 	maxPendingOutgoing?: number;
+
 	maxEstablishedIncoming?: number;
+
 	maxEstablishedOutgoing?: number;
+
 	maxEstablishedPerPeer?: number;
+
 	maxEstablishedTotal?: number;
 }
 export interface PeerAddress {
 	known: string[];
+
 	use_relay_fallback: boolean;
 }
 export interface AddressInfo {
 	peers: Map<string, PeerAddress>;
+
 	relays: string[];
 }
 export interface ClientAccess {
 	useVaultDefault?: boolean;
+
 	useVaultExceptions?: Map<VaultPath, boolean>;
+
 	writeVaultDefault?: boolean;
+
 	writeVaultExceptions?: Map<VaultPath, boolean>;
+
 	cloneVaultDefault?: boolean;
+
 	cloneVaultExceptions?: Map<VaultPath, boolean>;
+
 	readStore?: boolean;
+
 	writeStore?: boolean;
 }
 export interface Permissions {
 	default?: ClientAccess;
+
 	exceptions?: Map<VaultPath, ClientAccess>;
 }
 export interface NetworkConfig {
 	requestTimeout?: Duration;
+
 	connectionTimeout?: Duration;
+
 	connectionsLimit?: ConnectionLimits;
+
 	enableMdns?: boolean;
+
 	enableRelay?: boolean;
+
 	addresses?: AddressInfo;
+
 	peerPermissions?: Map<string, Permissions>;
+
 	permissionsDefault?: Permissions;
 }
 /** A duration definition. */
@@ -73,10 +95,13 @@ export interface Duration {
 }
 export declare class Location {
 	type: string;
+
 	payload: Record<string, unknown>;
 
 	constructor(type: string, payload: Record<string, unknown>);
+
 	static generic(vault: VaultPath, record: RecordPath): Location;
+
 	static counter(vault: VaultPath, counter: number): Location;
 }
 declare class ProcedureExecutor {
@@ -149,6 +174,7 @@ declare class ProcedureExecutor {
 }
 export declare class Client {
 	path: string;
+
 	name: BytesDto;
 
 	constructor(path: string, name: ClientPath);
@@ -164,12 +190,15 @@ export declare class Client {
 }
 export declare class Store {
 	path: string;
+
 	client: BytesDto;
 
 	constructor(path: string, client: BytesDto);
 
 	get(key: StoreKey): Promise<Uint8Array | null>;
+
 	insert(key: StoreKey, value: number[], lifetime?: Duration): Promise<void>;
+
 	remove(key: StoreKey): Promise<Uint8Array | null>;
 }
 /**
@@ -180,6 +209,7 @@ export declare class Store {
 export declare class Vault extends ProcedureExecutor {
 	/** The vault path. */
 	path: string;
+
 	client: BytesDto;
 	/** The vault name. */
 	name: BytesDto;
@@ -223,7 +253,9 @@ export declare class Stronghold {
 	 * Remove this instance from the cache.
 	 */
 	unload(): Promise<void>;
+
 	loadClient(client: ClientPath): Promise<Client>;
+
 	createClient(client: ClientPath): Promise<Client>;
 	/**
 	 * Persists the stronghold state to the snapshot.
