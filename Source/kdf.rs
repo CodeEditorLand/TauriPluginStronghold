@@ -15,6 +15,7 @@ impl KeyDerivation {
 	/// if file already exists
 	pub fn argon2(password:&str, salt_path:&Path) -> Vec<u8> {
 		let mut salt = [0u8; HASH_LENGTH];
+
 		create_or_get_salt(&mut salt, salt_path);
 
 		argon2::hash_raw(password.as_bytes(), &salt, &Default::default())
@@ -26,11 +27,14 @@ fn create_or_get_salt(salt:&mut [u8], salt_path:&Path) {
 	if salt_path.is_file() {
 		// Get existing salt
 		let tmp = std::fs::read(salt_path).unwrap();
+
 		salt.clone_from_slice(&tmp);
 	} else {
 		// Generate new salt
 		let mut gen = ChaCha20Rng::from_entropy();
+
 		gen.fill_bytes(salt);
+
 		std::fs::write(salt_path, salt).expect("Failed to write salt for Stronghold")
 	}
 }
