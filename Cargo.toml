@@ -1,29 +1,16 @@
-[package]
-name = "tauri-plugin-stronghold"
-version = "0.0.0"
-description = "Store secrets and keys using the IOTA Stronghold encrypted database."
-authors = { workspace = true }
-license = { workspace = true }
-edition = { workspace = true }
-rust-version = { workspace = true }
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+hex = "0.4"
+iota-crypto = "0.23"
+iota_stronghold = "1"
+log = { workspace = true }
+rand_chacha = { version = "0.3.1", optional = true }
+rand_core = { version = "0.6.4", features = ["getrandom"], optional = true }
+rust-argon2 = { version = "1", optional = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 tauri = { workspace = true }
-log = { workspace = true }
 thiserror = { workspace = true }
-iota_stronghold = "1"
-iota-crypto = "0.23"
-hex = "0.4"
 zeroize = { version = "1", features = ["zeroize_derive"] }
-
-# kdf dependencies
-rust-argon2 = { version = "1", optional = true }
-rand_chacha = { version = "0.3.1", optional = true }
-rand_core = { version = "0.6.4", features = ["getrandom"], optional = true }
 
 [dev-dependencies]
 rand = "0.8"
@@ -32,3 +19,15 @@ rusty-fork = "0.3"
 [features]
 default = ["kdf"]
 kdf = ["dep:rust-argon2", "dep:rand_chacha", "dep:rand_core"]
+
+[lib]
+path = "Source/lib.rs"
+
+[package]
+authors = { workspace = true }
+description = "Store secrets and keys using the IOTA Stronghold encrypted database."
+edition = { workspace = true }
+license-file = { workspace = true }
+name = "tauri-plugin-stronghold"
+rust-version = { workspace = true }
+version = "0.0.0"
